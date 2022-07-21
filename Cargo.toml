@@ -1,0 +1,30 @@
+[package]
+name = "igusharray"
+version = "0.1.0"
+authors = ["Pierre Marijon <pierre@marijon.fr>"]
+description = "A rust implementation of IgushArray, an array with better insertion deletion time"
+
+edition = "2021"
+rust-version = "1.60"
+
+homepage = "https://github.com/natir/igusharray"
+repository = "https://github.com/natir/igusharray"
+documentation = "https://natir.github.io/igusharray/igusharray"
+
+readme = "Readme.md"
+license-file = "LICENSE"
+
+keywords = ["array"]
+
+[dependencies]
+
+[profile.release]
+lto = 'thin'
+opt-level = 3
+overflow-checks = false
+panic = 'abort'
+incremental = false
+
+[profile.criterion]
+inherits = "release"
+debug = true
